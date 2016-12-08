@@ -1,4 +1,6 @@
 import java.awt.Dimension;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 
 /**
  * Common superclass for all game model classes.
@@ -7,7 +9,18 @@ import java.awt.Dimension;
  * game-dependent fields.
  */
 public abstract class GameUtilites implements IGameModel {
+   /* @Override
+    public void addObserver(PropertyChangeListener observer) {
+        new PropertyChangeSupport(this).addPropertyChangeListener(observer);
+    }
 
+    @Override
+    public void removeObserver(PropertyChangeListener observer) {
+        new PropertyChangeSupport(this).removePropertyChangeListener(observer);
+
+
+}
+*/
     /**
      * Set the tile on a specified position in the gameboard.
      *
@@ -33,6 +46,9 @@ public abstract class GameUtilites implements IGameModel {
     protected void setGameboardState(GameTile[][] gameboardState, final int x, final int y,
                                      final GameTile tile) {
         gameboardState[x][y] = tile;
+
+
+
     }
 
 }

@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,19 @@ import java.util.List;
  * of remaining coins. The game is won when all coins are collected and lost when
  * collector leaves game board.
  */
-public class GoldModel extends GameUtilites {
+public class GoldModel extends GameUtilites  {
+    private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+    @Override
+    public void addObserver(PropertyChangeListener observer) {
+        this.pcs.addPropertyChangeListener(observer);
+    }
+
+    @Override
+    public void removeObserver(PropertyChangeListener observer) {
+        this.pcs.removePropertyChangeListener(observer);
+    }
+
     public enum Directions {
         EAST(1, 0),
         WEST(-1, 0),

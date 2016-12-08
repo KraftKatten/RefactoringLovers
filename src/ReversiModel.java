@@ -3,7 +3,8 @@ import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
-
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 /**
  * A somewhat defective implementation of the game Reversi. The purpose
  * of this class is to illustrate shortcomings in the game framework.
@@ -11,7 +12,19 @@ import java.awt.event.KeyEvent;
  * @author evensen
  * 
  */
-public class ReversiModel extends GameUtilites {
+public class ReversiModel extends GameUtilites  {
+	private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+	@Override
+	public void addObserver(PropertyChangeListener observer) {
+		this.pcs.addPropertyChangeListener(observer);
+	}
+
+	@Override
+	public void removeObserver(PropertyChangeListener observer) {
+		this.pcs.removePropertyChangeListener(observer);
+	}
+
 	public enum Direction {
 			EAST(1, 0),
 			SOUTHEAST(1, 1),
@@ -30,6 +43,8 @@ public class ReversiModel extends GameUtilites {
 			this.xDelta = xDelta;
 			this.yDelta = yDelta;
 		}
+
+
 
 		public int getXDelta() {
 			return this.xDelta;
