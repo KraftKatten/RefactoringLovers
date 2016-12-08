@@ -63,7 +63,7 @@ public class ReversiModel extends GameModel {
 	private static final GameTile whiteTile = new RoundTile(Color.BLACK,
 			Color.WHITE, 1.0, 0.8);
 	private static final GameTile blankTile = new SquareTile(Color.BLACK,
-			new Color(0, 200, 0), 2.0);
+			new Color(194, 201, 218), 2.0);
 	private static final GameTile whiteGridTile = new CompositeTile(blankTile,
 			whiteTile);
 	private static final GameTile blackGridTile = new CompositeTile(blankTile,
