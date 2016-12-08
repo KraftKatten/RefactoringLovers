@@ -390,6 +390,7 @@ public class ReversiModel extends GameUtilites  {
 			cursoredTile = new CompositeTile(t, cursorRedTile);
 		}
 		setGameboardState(gameboardState, this.cursorPos, cursoredTile);
+		pcs.notify();
 	}
 
 	/**

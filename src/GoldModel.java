@@ -245,6 +245,7 @@ public class GoldModel extends GameUtilites  {
 
         // Add a new coin (simulating moving one coin)
         addCoin();
+        pcs.notify();
 
     }
 
