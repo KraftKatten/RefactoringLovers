@@ -21,7 +21,7 @@ public class GameFactory implements IGameFactory {
 	 *             if no such game
 	 */
 	@Override
-	public GameModel createGame(final String gameName) {
+	public IGameModel createGame(final String gameName) {
 		if (gameName.equals("Gold")) {
 			return new GoldModel();
 		}if (gameName.equals("Revers")) {
